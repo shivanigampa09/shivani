@@ -1,33 +1,11 @@
-import React, { useState } from 'react';
-import confetti from 'canvas-confetti';
-import { playSuccessChime } from '../utils/audio';
+import React from 'react';
 
 export default function Footer() {
-  const [celebrated, setCelebrated] = useState(false);
-
-  const handleSparkle = () => {
-    playSuccessChime();
-    setCelebrated(true);
-    confetti({
-      particleCount: 80,
-      spread: 70,
-      origin: { y: 0.85 },
-      colors: ['#10b981', '#34d399', '#06b6d4', '#f59e0b', '#ec4899', '#a855f7']
-    });
-    setTimeout(() => setCelebrated(false), 2400);
-  };
-
   return (
     <footer className="footer-container">
       <div className="section-container">
         {/* Minimal & Distinctive Thank You Card */}
-        <div 
-          className={`thankyou-card glass-panel ${celebrated ? 'celebrated' : ''}`}
-          onClick={handleSparkle}
-          role="button"
-          tabIndex={0}
-          title="Click to celebrate ✨"
-        >
+        <div className="thankyou-card glass-panel">
           <div className="thankyou-ambient-glow"></div>
 
           <h2 className="thankyou-headline font-display">
@@ -62,22 +40,15 @@ export default function Footer() {
             0 20px 50px rgba(0, 0, 0, 0.75),
             0 0 40px rgba(16, 185, 129, 0.08);
           overflow: hidden;
-          cursor: pointer;
+          cursor: default;
           transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
           user-select: none;
         }
         .thankyou-card:hover {
-          border-color: rgba(16, 185, 129, 0.55);
-          transform: translateY(-3px);
+          border-color: rgba(16, 185, 129, 0.45);
           box-shadow: 
             0 25px 60px rgba(0, 0, 0, 0.85),
             0 0 50px rgba(16, 185, 129, 0.18);
-        }
-        .thankyou-card.celebrated {
-          border-color: rgba(52, 211, 153, 0.8);
-          box-shadow: 
-            0 25px 60px rgba(0, 0, 0, 0.85),
-            0 0 60px rgba(16, 185, 129, 0.35);
         }
 
         .thankyou-ambient-glow {

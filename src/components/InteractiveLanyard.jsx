@@ -97,6 +97,8 @@ export default function InteractiveLanyard() {
                 <span className="card-tag">React.js</span>
                 <span className="card-tag">Node.js</span>
                 <span className="card-tag">MongoDB</span>
+                <span className="card-tag">Firebase</span>
+                <span className="card-tag">Supabase</span>
                 <span className="card-tag">Tailwind</span>
               </div>
             </div>

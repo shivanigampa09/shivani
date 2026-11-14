@@ -34,6 +34,8 @@ const CHAPTERS = [
           <span className="b-chip">Node.js</span>
           <span className="b-chip">Express.js</span>
           <span className="b-chip">MongoDB</span>
+          <span className="b-chip">Firebase</span>
+          <span className="b-chip">Supabase</span>
           <span className="b-chip">Tailwind CSS</span>
         </div>
       </>
@@ -356,6 +358,8 @@ export default function AboutSection() {
                         <span className="tech-badge">Node.js</span>
                         <span className="tech-badge">Tailwind CSS</span>
                         <span className="tech-badge">MongoDB</span>
+                        <span className="tech-badge">Firebase</span>
+                        <span className="tech-badge">Supabase</span>
                       </div>
                     </div>
 

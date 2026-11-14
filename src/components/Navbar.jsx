@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { playUiClick, toggleSound } from '../utils/audio';
-import { FileDown, Volume2, VolumeX } from 'lucide-react';
+import { playUiClick } from '../utils/audio';
+import { FileDown } from 'lucide-react';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [soundOn, setSoundOn] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,14 +18,6 @@ export default function Navbar() {
     e.preventDefault();
     playUiClick(750, 'sine', 0.05);
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleSoundToggle = () => {
-    const newState = toggleSound();
-    setSoundOn(newState);
-    if (newState) {
-      playUiClick(880, 'triangle', 0.08);
-    }
   };
 
   const handleResumeDownload = () => {
@@ -58,16 +49,6 @@ export default function Navbar() {
 
         {/* Action Controls */}
         <div className="nav-actions">
-          {/* Sound Toggle */}
-          <button 
-            className="icon-btn" 
-            onClick={handleSoundToggle}
-            title={soundOn ? 'Mute sound effects' : 'Enable sound effects'}
-            aria-label="Toggle Sound"
-          >
-            {soundOn ? <Volume2 size={16} /> : <VolumeX size={16} />}
-          </button>
-
           {/* Resume Download CTA */}
           <button 
             className="btn-resume" 
@@ -172,25 +153,6 @@ export default function Navbar() {
           display: flex;
           align-items: center;
           gap: 10px;
-        }
-
-        .icon-btn {
-          width: 36px;
-          height: 36px;
-          border-radius: 50%;
-          background: rgba(255, 255, 255, 0.04);
-          border: 1px solid rgba(255, 255, 255, 0.08);
-          color: var(--text-muted);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          transition: all 0.2s ease;
-        }
-        .icon-btn:hover {
-          color: var(--emerald-light);
-          background: rgba(16, 185, 129, 0.12);
-          border-color: rgba(16, 185, 129, 0.3);
         }
 
         .btn-resume {
